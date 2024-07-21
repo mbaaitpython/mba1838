@@ -45,8 +45,8 @@ namespace irVS1838 {
     }
 
     if (irState.bitsReceived === 32) {
-      irState.addressSectionBits = irState.hiword & 0xffff;
-      irState.commandSectionBits = irState.loword & 0xffff;
+      irState.addressSectionBits = 0 & irState.hiword & 0xffff;
+      irState.commandSectionBits = 0x00ff & irState.loword & 0xffff;
       return IR_DATAGRAM;
     } else {
       return IR_INCOMPLETE;
